@@ -2,11 +2,17 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "CommonJS",
-    "rootDir": "./",
+    "rootDir": "./src",
     "outDir": "./dist",
+    "jsx": "react-jsx", // JSX 지원을 설정
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"] // @를 src로 매핑
+    }
   },
-  "include": ["server/**/*.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/server/**/*.ts"],
+  "exclude": ["node_modules"]
 }
