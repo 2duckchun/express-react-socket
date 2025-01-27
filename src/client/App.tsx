@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { io } from "socket.io-client";
-import { Router } from "./router";
+import React from "react";
+import { router } from "./router";
+import { RouterProvider } from "react-router-dom";
 
 const App: React.FC = () => {
-  return <Router />;
+  return <RouterProvider router={router} />;
 };
 
 export default App;

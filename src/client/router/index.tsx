@@ -1,18 +1,29 @@
 import Home from "../pages/Home";
 import About from "../pages/About";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { AllChatPage } from "../pages/AllChat";
-import { Header } from "../layout/main/header";
+import { DefaultLayout } from "../layout/default";
 
-export function Router() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/all-chat" element={<AllChatPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+export const router = createBrowserRouter([
+  {
+    element: <DefaultLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "home",
+        element: <Home />,
+      },
+      {
+        path: "all-chat",
+        element: <AllChatPage />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
+  },
+]);
