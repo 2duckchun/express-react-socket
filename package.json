@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm build && pnpm start",
-    "dev:client": "vite",
-    "dev:server": "nodemon src/server/server.ts",
+    "dev": "concurrently \"pnpm dev:build\" \"pnpm dev:server\"",
+    "dev:build": "vite build --watch",
+    "dev:server": "nodemon dist/server/server.js",
     "build": "vite build && tsc --project tsconfig.json",
     "start": "node dist/server/server.js"
   },
